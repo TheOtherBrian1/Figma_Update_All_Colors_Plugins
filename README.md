@@ -5,6 +5,6 @@
   Tutorial for plugin
 </a>
 <p>
-  A plugin that will scan a Figma file and replace the swap the color of all objects with a user specified keyword in their title.
+  A plugin that will scan a Figma file and swap the color of all objects with a keyword in their title
 </p>
 <img src = "ReadMe-assets/demo.gif" />
