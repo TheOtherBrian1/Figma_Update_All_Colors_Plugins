@@ -1,0 +1,85 @@
+<!--Header-->
+<h1> Change Widgets Color </h1>
+
+<!-- Short app explanation -->
+<p>
+  Will change the color of all objects with the key word in their title
+</p>
+
+<!--Asks user for a hex color value-->
+<label for = 'hex-input'>
+  New Hex Color
+  <input
+    required
+    id = "hex-input"
+    type = "text"
+    max = "6"
+    min = "6"
+    placeholder = "fafa1d"
+  />
+</label>
+
+<!--Asks user for a key word-->
+<label for = 'keyword-input'>
+  Key Word
+  <input
+    required
+    id = "keyword-input"
+    type = "text"
+    placeholder = "title"
+  />
+</label>
+
+<!--Submit button-->
+<button id = "button">
+  Change Color
+</button>
+
+<style>
+  body{
+    font-family: sans-serif;
+  }
+  p{
+    color: #777777;
+  }
+  label{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom:10px;
+    width: 75%;
+    font-weight: 600;
+  }
+
+  input{
+    font-size: 14px;
+    margin-top: 3px;
+    border-style: none;
+    border-bottom-style: solid;
+    outline: none;
+    font-weight: 600;
+  }
+  button{
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  //Creates variables that allow us to access the HTML components
+  const hexInput = document.getElementById('hex-input');
+  const keywordInput = document.getElementById('keyword-input');
+  const button = document.getElementById('button');
+
+  //Takes input values and shares them with your Figma code
+  function whenButtonIsClicked(){
+    const hex = hexInput.value;
+    const keyword = keywordInput.value;
+    //Sends your values to your Figma code. * is the code's worker address
+    parent.postMessage({ pluginMessage: { hex, keyword } }, '*')
+  }
+
+  //creates a listener that will activate whenever the button is clicked
+  button.addEventListener('click', whenButtonIsClicked)
+</script>
